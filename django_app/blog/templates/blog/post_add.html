@@ -1,6 +1,21 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+
     <a href="{% url 'post_list' %}">Back to List</a>
+
+    <form action="" method="POST">{% csrf_token %}
+        <fieldset>
+            <legned>Add Post</legned>
+
+            {% for field in forms %}
+                <div>
+                    {{ field }}
+                </div>
+            {% endfor %}
+
+            <button type="submit">Write Post</button>
+        </fieldset>
+    </form>
 
 {% endblock %}

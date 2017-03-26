@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
+from .forms import PostForm
 from .models import Post
 
 
@@ -32,7 +33,12 @@ def post_detail(request, post_id):
 def post_add(request):
     # return HttpResponse('post_add view')
 
-    context = {
-
-    }
-    return render(request, 'blog/post_add.html', context)
+    if request.method == 'POST':
+        print(request.POST)
+        return HttpResponse('post_add view')
+    else:
+        forms = PostForm()
+        context = {
+            'forms': forms,
+        }
+        return render(request, 'blog/post_add.html', context)
