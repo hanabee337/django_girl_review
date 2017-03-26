@@ -63,3 +63,20 @@ def post_add(request):
             'forms': forms,
         }
         return render(request, 'blog/post_add.html', context)
+
+
+def post_delete(request, post_id):
+    # return HttpResponse('post_delete view')
+    if request.method == 'POST':
+        print(request.POST)
+
+        post = Post.objects.get(id=post_id)
+        post.delete()
+
+        return redirect('post_list')
+    else:
+        forms = PostForm()
+        context = {
+            'forms': forms,
+        }
+        return render(request, 'blog/post_delete.html', context)

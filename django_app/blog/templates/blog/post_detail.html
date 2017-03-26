@@ -8,4 +8,8 @@
     <h3> {{ post_detail.text }} </h3>
     <h3> {{ post_detail.created_date }} </h3>
     <h3> {{ post_detail.published_date }} </h3>
+
+    <a href="{% url 'post_delete' post_id=post_detail.id %}">{% csrf_token %}
+        <button type="submit">Delete</button>
+    </a>
 {% endblock %}
