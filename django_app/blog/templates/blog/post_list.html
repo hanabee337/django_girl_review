@@ -8,9 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Hello~~~</h1>
+<div>
+<h1>Hello~~~ Django Girls </h1>
+</div>
 
-{{ posts }}
+{% for post in posts %}
+    <div>
+        <p> {{ post.published_date }} </p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text }}</p>
+    </div>
+{% endfor %}
 
 </body>
 </html>
